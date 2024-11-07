@@ -1,7 +1,7 @@
 import { SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/Components/ui/sidebar";
 import { DropdownMenu } from "@radix-ui/react-dropdown-menu";
 import { DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuTrigger } from "@/Components/ui/dropdown-menu";
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { AudioWaveform, ChevronsUpDown, Command, Plus, Wallet } from "lucide-react";
 
 const teams = [
@@ -22,8 +22,8 @@ const teams = [
   },
 ];
 
-export default function MSidebarHeader() {
-  const [activeTeam, setActiveTeam] = React.useState(teams[0])
+export default function MSidebarHeader({teamId = 0}) {
+  const [activeTeam, setActiveTeam] = React.useState(teams[teamId])
 
   return (
       <SidebarHeader>
